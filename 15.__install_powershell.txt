@@ -1,0 +1,10 @@
+15. 
+powershell command : https://docs.microsoft.com/en-us/powershell/azure/?view=azps-5.9.0&viewFallbackFrom=azps-3.3.0
+cli command : https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest
+
+16.
+powershell releases : https://github.com/PowerShell/PowerShell/releases
+
+17. 
+
+install powershell azure az module : https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-5.9.0&viewFallbackFrom=azps-2.5.0
