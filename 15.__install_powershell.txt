@@ -6,5 +6,46 @@ cli command : https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest
 powershell releases : https://github.com/PowerShell/PowerShell/releases
 
 17. 
-
 install powershell azure az module : https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-5.9.0&viewFallbackFrom=azps-2.5.0
+
+step to install azure module in powershell : -----------------------------------------------------------------------------
+1. download powershell from https://github.com/PowerShell/PowerShell/releases ( take 64bit .msi installer)
+2. install it by double clicking that. Keep all the default permission
+3. once installation done run this as administrator
+4. check the version of powershell : 
+
+PS C:\Windows\System32> $PSVersionTable.PSVersion
+
+Major  Minor  Patch  PreReleaseLabel BuildLabel
+-----  -----  -----  --------------- ----------
+7      2      0      preview.5
+
+5. download the az module : 
+PS C:\Windows\System32> Install-Module -name Az -AllowClobber -Force
+
+6. after the az module installation check all the version that is installed . ( note: different AZ module version can be installed side by side . powershell will take the latest version installed unless mention older version specifically)
+
+PS C:\Windows\System32> Get-InstalledModule -Name Az -AllVersions | Select-Object -Property Name, Version
+
+Name Version
+---- -------
+Az   5.9.0
+
+7. To connect the powershell to azure account . 
+PS C:\Windows\System32> Connect-AzAccount  ( ** this will open browser to authenticate to your azure account , below details will come after successful authentication)
+
+Account                  SubscriptionName 		TenantId               Environment
+-------                  ---------------- 		--------                -----------
+i******10@outlook.com 		Free Trial       *********************		2 AzureCloud
+
+8. To get the details of the VM and WebApps
+
+PS C:\Windows\System32> Get-AzVM
+PS C:\Windows\System32> Get-AzWebApp
+
+9. get all the azure subscription:
+PS C:\Windows\System32> Get-AzSubscription
+10. select default subscription to work with 
+PS C:\Users\indra> $context = Get-AzSubscription -SubscriptionId <<subscription id from Get-AzSubscription >>
+PS C:\Users\indra> Set-AzContext $context
+
